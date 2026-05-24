@@ -3,9 +3,11 @@ require_once("../koneksi.php");
 session_start();
 
 $method = $_GET['method']; // isiannya = create, update, delete,
-$email = $_POST['abcdef'] ?? '';
-$password = $_POST['password'] ?? '';
 $name = $_POST['name'] ?? '';
+$email = $_POST['abcdef'];
+$password = $_POST['password'];
+$name = $_POST['name'];
+
 
 $data = [
     'email' => $email,
@@ -13,9 +15,10 @@ $data = [
     'name' => $name,
 ];
 
-if ($method == "create" && $email != '' && $password != '' && $name != '') {
-    storeData($data, $db);
-}
+if ($method == "create" && $email != '' && $password != '' && $name != '')
+    if ($method == "create") {
+        storeData($data, $db);
+    }
 
 if ($method == "delete") {
     $id = $_GET['id'] ?? '';

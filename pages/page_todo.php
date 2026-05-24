@@ -11,6 +11,7 @@
                     <th class="text-left p-3">Name</th>
                     <th class="text-left p-3">Activity</th>
                     <th class="text-left p-3">Status</th>
+                    <th class="text-left p-3">Action</th>
                 </tr>
             </thead>
             <tbody class="divide-y divide-slate-100">
@@ -30,6 +31,10 @@
                         </td>
                         <td class="p-3 text-sm">
                             <?php echo $row['status']; ?>
+                        </td>
+                        <td class="p-3 text-sm">
+                            <a href="controllers/todo_controller.php?method=delete&id=<?php echo $row['id']; ?>"
+                                class="bg-red-500 text-white rounded inline-block w-fit px-2 py-1 font-medium text-sm">Hapus</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

@@ -47,32 +47,35 @@ if (isset($_SESSION['status_login']) && $_SESSION['status_login']) {
         </ul>
       </div>
       <div class="flex flex-col p-5 flex-1 text-slate-800">
-                <?php
-                switch ($page_name) {
-                  case 'dashboard':
-                    include("pages/page_dashboard.php");
-                    break;
-                  case 'todo':
-                    include("pages/page_todo.php");
-                    break;
-                  case 'user':
-                    include("pages/page_user.php");
-                    break;
-                  case 'create_todo':
-                    include("pages/page_create_todo.php");
-                    break;
-                  case 'create_user':
-                    include("pages/page_create_user.php");
-                    break;
+        <?php
+        switch ($page_name) {
+          case 'dashboard':
+            include("pages/page_dashboard.php");
+            break;
+          case 'todo':
+            include("pages/page_todo.php");
+            break;
+          case 'user':
+            include("pages/page_user.php");
+            break;
+          case 'create_todo':
+            include("pages/page_create_todo.php");
+            break;
+          case 'edit_todo':
+            include("pages/page_edit_todo.php");
+            break;
+          case 'create_user':
+            include("pages/page_create_user.php");
+            break;
 
-                  default:
-                    # code...
-                    break;
-                }
-                ?>
-            </div>
-        </div>
+          default:
+            # code...
+            break;
+        }
+        ?>
+      </div>
     </div>
+  </div>
 </body>
 
 </html>

@@ -13,27 +13,46 @@ $data = [
     'activity' => $activity,
 ];
 
-if ($method == "create")
-    if ($method == "create" && $name != '' && $status != '' && $activity != '') {
-        storeData($data, $db);
-    }
-
-if ($method == "delete")
-    $id = $_GET['id'] ?? '';
-if ($id != '') {
-    deleteData($id, $db);
+// create
+if ($method == "create" && $name != '' && $status != '' && $activity != '') {
+    storeData($data, $db);
 }
+
+// delete
+if ($method == "delete") {
+    $id = $_GET['id'] ?? '';
+    if ($id != '') {
+        deleteData($id, $db);
+    }
+}
+
+// update
+if ($method == "update") {
+    $id = $_POST['record_id'] ?? '';
+    if ($id != '') {
+        updateData($id, $data, $db);
+    }
+    header("location:../index.php?page_name=todo");
+}
+
+
 function storeData($data, $db)
 {
-    $count = $db->prepare("INSERT INTO list_todo (name, status, activity) VALUES (?, ?, ?)");
-    $count->execute([$data['name'], $data['status'], $data['activity']]);
+    $sql = $db->prepare("INSERT INTO list_todo (name, status, activity) VALUES (?, ?, ?)");
+    $sql->execute([$data['name'], $data['status'], $data['activity']]);
     header("location:../index.php?page_name=todo");
 }
 
 function deleteData($id, $db)
 {
-    $count = $db->prepare("DELETE FROM list_todo WHERE id = ?");
-    $count->execute([$id]);
+    $sql = $db->prepare("DELETE FROM list_todo WHERE id = ?");
+    $sql->execute([$id]);
     header("location:../index.php?page_name=todo");
 }
-?>
+
+function updateData($id, $data, $db)
+{
+    $sql = $db->prepare("UPDATE list_todo SET name = ?, status = ?, activity = ? WHERE id = ?");
+    $sql->execute([$data['name'], $data['status'], $data['activity'], $id]);
+    header("location:../index.php?page_name=todo");
+}

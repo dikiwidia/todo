@@ -3,7 +3,7 @@
     <div class="flex flex-col my-2">
         <a href="index.php?page_name=create_todo"
             class="bg-green-500 text-white rounded inline-block w-fit px-2 py-1 font-medium text-sm">New
-            User</a>
+            Todo</a>
         <table class="w-full mt-4 border-collapse">
             <thead class="bg-slate-100 border-b border-slate-200">
                 <tr class="text-slate-600 text-sm uppercase">
@@ -33,6 +33,8 @@
                             <?php echo $row['status']; ?>
                         </td>
                         <td class="p-3 text-sm">
+                            <a href="index.php?page_name=edit_todo&id=<?php echo $row['id']; ?>"
+                                class="bg-sky-500 text-white rounded inline-block w-fit px-2 py-1 font-medium text-sm">Edit</a>
                             <a href="controllers/todo_controller.php?method=delete&id=<?php echo $row['id']; ?>"
                                 class="bg-red-500 text-white rounded inline-block w-fit px-2 py-1 font-medium text-sm">Hapus</a>
                         </td>

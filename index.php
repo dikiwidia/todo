@@ -40,8 +40,8 @@ if (isset($_SESSION['status_login']) && $_SESSION['status_login']) {
           <li><a href="index.php?page_name=user"
               class="hover:text-amber-200 <?php echo $page_name == 'user' ? 'text-amber-300' : ''; ?>">User</a>
           </li>
-          <li><a href="index.php?page_name=user"
-              class="hover:text-amber-200 <?php echo $page_name == 'mahasiswa' ? 'text-amber-300' : ''; ?>"></a>mahasiswa
+          <li><a href="index.php?page_name=mahasiswa"
+              class="hover:text-amber-200 <?php echo $page_name == 'mahasiswa' ? 'text-amber-300' : ''; ?>">mahasiswa</a>
           </li>
           <li><a href="proses_logout.php" class="hover:text-amber-200">Logout</a></li>
         </ul>
@@ -67,7 +67,15 @@ if (isset($_SESSION['status_login']) && $_SESSION['status_login']) {
           case 'create_user':
             include("pages/page_create_user.php");
             break;
-
+          case 'edit_user':
+            include("pages/page_edit_user.php");
+            break;
+          case 'create_mahasiswa':
+            include("pages/page_create_mahasiswa.php");
+            break;
+          case 'mahasiswa':
+            include("pages/page_mahasiswa.php");
+            break;
           default:
             # code...
             break;

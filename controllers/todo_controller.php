@@ -56,3 +56,4 @@ function updateData($id, $data, $db)
     $sql->execute([$data['name'], $data['status'], $data['activity'], $id]);
     header("location:../index.php?page_name=todo");
 }
+?>
